@@ -11,14 +11,8 @@ jobs:
         run: echo "Hi"
       - name: sayMyName
         run: echo "${{ github.actor }}"
-      - name: sayMyref
-        run: echo "${{ github.workflow_ref }}"
-  hello2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: sayHelloWorld
-        run: echo "HelloWorld"
-      - name: sayMyName
-        run: echo "${{ github.actor }}"
-      - name: sayMyref
-        run: echo "${{ github.workflow_ref }}"
+      - uses: actions/checkout@v3
+      - uses: mathieudutour/github-tag-action@v6.1
+        id: tag_version
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
