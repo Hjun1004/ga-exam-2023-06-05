@@ -11,3 +11,5 @@ jobs:
         run: echo "Hi"
       - name: sayMyName
         run: echo "${{ github.actor }}"
+      - name: sayMyemail
+        run: echo "${{ github.action_repository }}"
